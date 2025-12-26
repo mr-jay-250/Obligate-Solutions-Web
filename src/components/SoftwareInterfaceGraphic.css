@@ -1,0 +1,465 @@
+/* ============================================
+   SOFTWARE INTERFACE GRAPHIC - OPTIMIZED
+   ============================================ */
+
+.software-graphic-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 420px;
+    position: relative;
+    perspective: 1500px;
+    contain: content;
+    /* Rendering optimization */
+}
+
+/* Laptop Device Wrapper */
+.laptop-device {
+    position: relative;
+    width: 520px;
+    max-width: 95%;
+    transform-style: preserve-3d;
+    transform: rotateX(5deg) rotateY(-8deg);
+    will-change: transform;
+    transition: transform 0.5s ease-out;
+}
+
+.laptop-device:hover {
+    transform: rotateX(2deg) rotateY(-4deg) translateY(-5px);
+}
+
+/* Laptop Screen Frame */
+.laptop-screen {
+    background: #0f172a;
+    border-radius: 12px 12px 0 0;
+    border: 4px solid #334155;
+    border-bottom: none;
+    height: 320px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Screen Content Area */
+.screen-content {
+    flex: 1;
+    background: #1e293b;
+    /* Solid color is faster than gradient */
+    display: flex;
+    flex-direction: column;
+}
+
+.app-header {
+    height: 36px;
+    background: #0f172a;
+    border-bottom: 1px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+}
+
+.header-controls {
+    display: flex;
+    gap: 6px;
+}
+
+.control-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #475569;
+}
+
+.branding-text {
+    font-size: 0.65rem;
+    color: #94a3b8;
+    font-family: sans-serif;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+/* App Layout Skeleton */
+.app-body {
+    flex: 1;
+    display: flex;
+    padding: 1rem;
+    gap: 1rem;
+    overflow: hidden;
+}
+
+.app-sidebar {
+    width: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.sidebar-item {
+    height: 8px;
+    background: #334155;
+    border-radius: 4px;
+    width: 100%;
+    opacity: 0.6;
+}
+
+.sidebar-item-short {
+    width: 60%;
+}
+
+.sidebar-item-active {
+    background: #14b8a6;
+    opacity: 1;
+    width: 80%;
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+/* Skeleton Modules */
+.skeleton-card {
+    background: #334155;
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-skeleton {
+    height: 80px;
+    width: 100%;
+    opacity: 0.5;
+}
+
+.grid-skeleton {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.75rem;
+    flex: 1;
+}
+
+.grid-item {
+    border-radius: 6px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease;
+}
+
+.grid-item:hover {
+    transform: translateY(-2px);
+}
+
+/* Product Icons */
+.product-icon {
+    font-size: 2rem;
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+/* Colorful Product Cards */
+.product-card-mobile {
+    background: linear-gradient(135deg, #14b8a6 0%, #0ea5e9 100%);
+    opacity: 0.8;
+}
+
+.product-card-web {
+    background: linear-gradient(135deg, #0ea5e9 0%, #8b5cf6 100%);
+    opacity: 0.8;
+}
+
+.product-card-dashboard {
+    background: linear-gradient(135deg, #f59e0b 0%, #14b8a6 100%);
+    opacity: 0.8;
+}
+
+.product-card-api {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    opacity: 0.8;
+}
+
+.product-card-cloud {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    opacity: 0.8;
+}
+
+.product-card-ai {
+    background: linear-gradient(135deg, #ec4899 0%, #f59e0b 100%);
+    opacity: 0.8;
+}
+
+/* Shimmer Animation - Optimized */
+.shimmer-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(255, 255, 255, 0.15) 50%,
+            transparent 100%);
+    transform: translateX(-100%);
+    animation: shimmer 3s infinite ease-in-out;
+    will-change: transform;
+}
+
+/* Laptop Base */
+.laptop-base {
+    background: #1e293b;
+    height: 18px;
+    width: 120%;
+    margin-left: -10%;
+    border-radius: 0 0 16px 16px;
+    position: relative;
+    transform-style: preserve-3d;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.laptop-base::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 45%;
+    width: 10%;
+    height: 4px;
+    background: #334155;
+    border-radius: 0 0 4px 4px;
+}
+
+
+/* Trust Badges - Floating around laptop */
+.float-badge {
+    position: absolute;
+    background: rgba(15, 23, 42, 0.95);
+    border: 1px solid rgba(20, 184, 166, 0.4);
+    backdrop-filter: blur(8px);
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transform: translateZ(30px);
+    animation: float 4s ease-in-out infinite;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+.float-badge:hover {
+    transform: translateZ(40px) translateY(-3px);
+    border-color: rgba(20, 184, 166, 0.6);
+    box-shadow: 0 12px 32px rgba(20, 184, 166, 0.2);
+}
+
+/* Individual badge positions - Triangular arrangement */
+.trust-badge-1 {
+    top: 30%;
+    left: -12%;
+    animation-delay: 0s;
+}
+
+.trust-badge-2 {
+    top: 30%;
+    right: -12%;
+    animation-delay: 1s;
+}
+
+.trust-badge-3 {
+    bottom: 15%;
+    left: 50%;
+    transform: translateX(-50%) translateZ(30px);
+    animation-delay: 2s;
+}
+
+.trust-badge-3:hover {
+    transform: translateX(-50%) translateZ(40px) translateY(-3px);
+}
+
+.trust-icon {
+    color: #14b8a6;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4));
+}
+
+.badge-text {
+    font-size: 0.7rem;
+    color: #e2e8f0;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+/* Keyframes */
+@keyframes shimmer {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0) translateZ(30px);
+    }
+
+    50% {
+        transform: translateY(-10px) translateZ(30px);
+    }
+}
+
+/* Medium screens - Tablets and small laptops */
+@media (max-width: 1200px) {
+    .software-graphic-container {
+        height: 380px;
+    }
+
+    .laptop-device {
+        width: 460px;
+        max-width: 95%;
+    }
+
+    .laptop-screen {
+        height: 280px;
+    }
+
+    /* Adjust badge positions for medium screens */
+    .trust-badge-1 {
+        left: -8%;
+    }
+
+    .trust-badge-2 {
+        right: -8%;
+    }
+
+    .trust-badge-3 {
+        bottom: 12%;
+    }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .software-graphic-container {
+        height: 240px;
+        perspective: 800px;
+        padding: 0 1rem;
+    }
+
+    .laptop-device {
+        width: 280px;
+        max-width: 90%;
+    }
+
+    .laptop-screen {
+        height: 170px;
+    }
+
+    .app-sidebar {
+        width: 35px;
+    }
+
+    .grid-skeleton {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+
+    .grid-item {
+        height: 70px;
+    }
+
+    .product-icon {
+        font-size: 1.5rem;
+    }
+
+    .branding-text {
+        font-size: 0.5rem;
+    }
+
+    /* Trust badges on mobile - smaller and closer */
+    .float-badge {
+        padding: 0.3rem 0.6rem;
+        font-size: 0.6rem;
+    }
+
+    .trust-icon {
+        width: 14px;
+        height: 14px;
+    }
+
+    .badge-text {
+        font-size: 0.55rem;
+    }
+
+    /* Adjust positions for smaller screen - triangular arrangement */
+    .trust-badge-1 {
+        top: 28%;
+        left: -8%;
+    }
+
+    .trust-badge-2 {
+        top: 28%;
+        right: -8%;
+    }
+
+    .trust-badge-3 {
+        bottom: 12%;
+        left: 50%;
+        transform: translateX(-50%) translateZ(30px);
+    }
+
+    .trust-badge-3:hover {
+        transform: translateX(-50%) translateZ(40px) translateY(-3px);
+    }
+
+    /* Disable hover effect on mobile */
+    .laptop-device:hover {
+        transform: rotateX(5deg) rotateY(-8deg);
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .software-graphic-container {
+        height: 220px;
+    }
+
+    .laptop-device {
+        width: 260px;
+    }
+
+    .laptop-screen {
+        height: 150px;
+    }
+
+    .float-badge {
+        padding: 0.25rem 0.5rem;
+    }
+
+    .trust-icon {
+        width: 12px;
+        height: 12px;
+    }
+
+    .badge-text {
+        font-size: 0.5rem;
+    }
+
+    .grid-item {
+        height: 60px;
+    }
+
+    .product-icon {
+        font-size: 1.2rem;
+    }
+}

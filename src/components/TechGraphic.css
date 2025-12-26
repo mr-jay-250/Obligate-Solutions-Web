@@ -1,0 +1,253 @@
+/* ============================================
+   TECH GRAPHIC - SIMPLE & MINIMAL
+   ============================================ */
+
+.tech-graphic-container {
+    position: relative;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+/* Code Window */
+.code-window {
+    width: 100%;
+    background: rgba(11, 28, 45, 0.6);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.window-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+    background: rgba(15, 35, 55, 0.8);
+    border-bottom: 1px solid rgba(20, 184, 166, 0.1);
+}
+
+.window-dots {
+    display: flex;
+    gap: 0.4rem;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.dot-red {
+    background: #ff5f56;
+}
+
+.dot-yellow {
+    background: #ffbd2e;
+}
+
+.dot-green {
+    background: #27c93f;
+}
+
+.window-title {
+    font-family: 'Courier New', monospace;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-weight: 500;
+}
+
+.code-content {
+    padding: 1.5rem;
+    font-family: 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+}
+
+.code-line {
+    display: flex;
+    gap: 1rem;
+    opacity: 0;
+    animation: codeFadeIn 0.6s ease-out forwards;
+    transition: background-color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    margin: 0.1rem 0;
+}
+
+.code-line.active {
+    background: rgba(20, 184, 166, 0.1);
+}
+
+.line-number {
+    color: rgba(255, 255, 255, 0.3);
+    min-width: 20px;
+    text-align: right;
+    user-select: none;
+}
+
+.line-text {
+    color: #14b8a6;
+    flex: 1;
+}
+
+@keyframes codeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Tech Stack Badges */
+.tech-stack {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+
+.tech-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(11, 28, 45, 0.6);
+    border: 1px solid rgba(20, 184, 166, 0.2);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    opacity: 0;
+    animation: badgeFadeIn 0.6s ease-out forwards;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.tech-badge:hover {
+    transform: translateY(-3px);
+    border-color: rgba(20, 184, 166, 0.5);
+    background: rgba(11, 28, 45, 0.8);
+    box-shadow: 0 8px 20px rgba(20, 184, 166, 0.2);
+}
+
+.tech-icon {
+    font-size: 1.25rem;
+    filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.3));
+}
+
+.tech-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+@keyframes badgeFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Background Grid */
+.tech-bg-grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 120%;
+    height: 120%;
+    background-image:
+        linear-gradient(rgba(20, 184, 166, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(20, 184, 166, 0.03) 1px, transparent 1px);
+    background-size: 30px 30px;
+    z-index: -1;
+    opacity: 0.5;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    .tech-graphic-container {
+        max-width: 100%;
+        gap: 1rem;
+    }
+
+    .code-window {
+        border-radius: 8px;
+    }
+
+    .window-header {
+        padding: 0.6rem 0.875rem;
+    }
+
+    .dot {
+        width: 10px;
+        height: 10px;
+    }
+
+    .window-title {
+        font-size: 0.7rem;
+    }
+
+    .code-content {
+        padding: 1rem;
+        font-size: 0.75rem;
+        line-height: 1.6;
+    }
+
+    .tech-stack {
+        gap: 0.5rem;
+    }
+
+    .tech-badge {
+        padding: 0.4rem 0.75rem;
+    }
+
+    .tech-icon {
+        font-size: 1rem;
+    }
+
+    .tech-label {
+        font-size: 0.7rem;
+    }
+
+    .tech-bg-grid {
+        background-size: 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .code-content {
+        padding: 0.75rem;
+        font-size: 0.7rem;
+    }
+
+    .tech-badge {
+        padding: 0.35rem 0.65rem;
+    }
+
+    .tech-icon {
+        font-size: 0.9rem;
+    }
+
+    .tech-label {
+        font-size: 0.65rem;
+    }
+}
