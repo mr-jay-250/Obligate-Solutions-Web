@@ -1,0 +1,112 @@
+/* ============================================
+   THEME TOGGLE BUTTON
+   ============================================ */
+
+.theme-toggle {
+    position: relative;
+    width: 44px;
+    height: 44px;
+    background: rgba(20, 184, 166, 0.1);
+    border: 1px solid rgba(20, 184, 166, 0.3);
+    border-radius: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.theme-toggle:hover {
+    background: rgba(20, 184, 166, 0.2);
+    border-color: rgba(20, 184, 166, 0.5);
+    box-shadow: 0 0 20px rgba(20, 184, 166, 0.3);
+    transform: translateY(-2px);
+}
+
+.theme-toggle:active {
+    transform: translateY(0);
+}
+
+.theme-toggle-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #14B8A6;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle-icon svg {
+    filter: drop-shadow(0 0 8px rgba(20, 184, 166, 0.4));
+}
+
+/* Rotation animation on theme change */
+.theme-toggle-icon.dark {
+    animation: rotateIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.theme-toggle-icon.light {
+    animation: rotateIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes rotateIn {
+    from {
+        transform: rotate(-180deg) scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: rotate(0deg) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Glow effect on hover */
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(20, 184, 166, 0.4), transparent);
+    transform: translate(-50%, -50%);
+    transition: width 0.3s ease, height 0.3s ease;
+    pointer-events: none;
+}
+
+.theme-toggle:hover::before {
+    width: 100px;
+    height: 100px;
+}
+
+/* Mobile styles */
+@media (max-width: 768px) {
+    .theme-toggle {
+        width: 40px;
+        height: 40px;
+    }
+
+    .theme-toggle-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Focus state for accessibility */
+.theme-toggle:focus-visible {
+    outline: 2px solid #14B8A6;
+    outline-offset: 4px;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+
+    .theme-toggle,
+    .theme-toggle-icon,
+    .theme-toggle::before {
+        transition: none;
+        animation: none;
+    }
+}

@@ -6,7 +6,7 @@
 .epic-hero {
     position: relative;
     min-height: 100vh;
-    background: linear-gradient(135deg, #0B1C2D 0%, #1a2332 50%, #0B1C2D 100%);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 50%, var(--bg-primary) 100%);
     overflow: hidden;
     display: flex;
     align-items: center;
@@ -203,7 +203,7 @@
     font-size: clamp(3rem, 8vw, 5rem);
     font-weight: 800;
     line-height: 1.1;
-    color: #ffffff;
+    color: var(--text-primary);
     margin: 0;
 }
 
@@ -250,13 +250,13 @@
 .hero-subtitle {
     font-size: clamp(1.125rem, 2vw, 1.25rem);
     line-height: 1.7;
-    color: #9ca3af;
+    color: var(--text-dim);
     max-width: 600px;
     animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s backwards;
 }
 
 .hero-subtitle strong {
-    color: #14B8A6;
+    color: var(--color-primary);
     font-weight: 600;
 }
 
@@ -289,9 +289,9 @@
 }
 
 .cta-primary {
-    background: linear-gradient(135deg, #14B8A6 0%, #0ea5e9 100%);
-    color: #ffffff;
-    box-shadow: 0 10px 30px rgba(20, 184, 166, 0.3);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    color: var(--text-primary);
+    box-shadow: var(--shadow-lg);
 }
 
 .cta-primary:hover {
@@ -371,7 +371,7 @@
 
 .stat-label {
     font-size: 0.875rem;
-    color: #6B7280;
+    color: var(--text-muted);
     font-weight: 500;
 }
 
@@ -695,7 +695,7 @@
 
 .scroll-text {
     font-size: 0.75rem;
-    color: #6B7280;
+    color: var(--text-muted);
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }

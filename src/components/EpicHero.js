@@ -179,20 +179,19 @@ export default function EpicHero() {
 
       <div className="hero-content">
         <div className="hero-text">
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            <span>Global Software Execution</span>
-          </div>
-
           <h1 className="hero-title">
-            <span className="title-line title-line-1">You Bring</span>
-            <span className="title-line title-line-2">
-              <span className="gradient-text">Vision</span>
-            </span>
-            <span className="title-line title-line-3">We Obligate</span>
-            <span className="title-line title-line-4">
-              <span className="gradient-text-alt">Delivery</span>
-            </span>
+            <div className="flex lg:block gap-2">
+              <span className="title-line title-line-1">You Bring</span>
+              <span className="title-line title-line-2">
+                <span className="gradient-text">Vision</span>
+              </span>
+            </div>
+            <div className='flex lg:block'>
+              <span className="title-line title-line-3">We Obligate</span>
+              <span className="title-line title-line-4">
+                <span className="gradient-text-alt">Delivery</span>
+              </span>
+            </div>
           </h1>
 
           <p className="hero-subtitle">
